@@ -1,20 +1,24 @@
 extends KinematicBody2D
 
-var velocity : Vector2
 export var speed : float
 
+var velocity : Vector2
+
 func _process(delta):
-	var dir = Vector2.ZERO
+	var frame_movement_direction = Vector2.ZERO
 	if Input.is_action_pressed("up"):
-		dir.y -= speed
+		frame_movement_direction.y -= speed
 	if Input.is_action_pressed("down"):
-		dir.y += speed
+		frame_movement_direction.y += speed
 	if Input.is_action_pressed("left"):
-		dir.x -= speed
+		frame_movement_direction.x -= speed
 	if Input.is_action_pressed("right"):
-		dir.x += speed
-	velocity += dir.normalized() * speed
+		frame_movement_direction.x += speed
+	velocity += frame_movement_direction.normalized() * speed
 	
+	look_at(get_global_mouse_position())
+	
+
 
 func _physics_process(delta):
 	velocity = move_and_slide(velocity)
