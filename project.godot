@@ -11,12 +11,8 @@ config_version=4
 [application]
 
 config/name="pekelna-rezba"
-run/main_scene="res://NetworkTest/NetworkTest.tscn"
+run/main_scene="res://NetworkCharacterTest/NetworkCharacterTestScene.tscn"
 config/icon="res://icon.png"
-
-[autoload]
-
-NetLobby="*res://NetworkTest/NetworkTest.Lobby.tscn"
 
 [input]
 
